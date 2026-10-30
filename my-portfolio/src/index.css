@@ -1,0 +1,273 @@
+:root {
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --accent: #2563eb;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar */
+.navbar .nav-link {
+  font-size: 0.95rem;
+}
+.navbar .nav-link.active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Headings */
+.page-title {
+  letter-spacing: -0.02em;
+}
+
+/* Dark mode accent: lighter blue reads better on dark backgrounds */
+[data-bs-theme='dark'] {
+  --accent: #60a5fa;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* About photo */
+.about-photo {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Project cards */
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bs-box-shadow);
+}
+.project-img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.card-link-icon {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.card-link-icon:hover {
+  text-decoration: underline;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none; }
+  .project-card:hover { transform: none; }
+}
+
+/* Keep long text pages at a comfortable reading width */
+.content-narrow {
+  max-width: 760px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--bs-border-color);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.75rem - 7px);
+  top: 0.4rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  border: 2px solid var(--accent);
+}
+
+/* Monospace font for code-style text */
+:root {
+  --bs-font-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --tok-str: #16a34a;
+  --tok-kw: #9333ea;
+}
+[data-bs-theme='dark'] {
+  --tok-str: #4ade80;
+  --tok-kw: #c084fc;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Notebook cells */
+.nb-cell {
+  margin-bottom: 2.5rem;
+}
+.nb-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+}
+@media (min-width: 768px) {
+  .nb-row {
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+  }
+}
+.nb-prompt {
+  font-family: var(--bs-font-monospace);
+  font-size: 0.8rem;
+  color: var(--accent);
+  padding-top: 0.55rem;
+  white-space: nowrap;
+}
+.nb-prompt-out {
+  color: var(--bs-secondary-color);
+}
+.nb-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--bs-border-radius);
+}
+.nb-code {
+  font-family: var(--bs-font-monospace);
+  font-size: 0.875rem;
+  color: var(--bs-body-color);
+}
+.tok-var { color: var(--bs-body-color); }
+.tok-fn { color: var(--accent); }
+.tok-str { color: var(--tok-str); }
+.tok-kw { color: var(--tok-kw); }
+
+/* describe() stats */
+.stat-box {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+}
+.stat-value {
+  font-family: var(--bs-font-monospace);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--bs-secondary-color);
+}
+
+/* Skill cards */
+.skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.skill-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.skill-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.3rem;
+  font-family: var(--bs-font-monospace);
+  font-size: 0.7rem;
+  border-radius: 999px;
+  color: var(--bs-body-bg);
+  background: var(--accent);
+}
+
+/* DataFrame table */
+.df-table {
+  font-size: 0.875rem;
+}
+.df-table th {
+  font-family: var(--bs-font-monospace);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.df-index {
+  width: 3rem;
+  font-family: var(--bs-font-monospace);
+  color: var(--bs-secondary-color) !important;
+}
+.df-num {
+  font-family: var(--bs-font-monospace);
+  text-align: right;
+}
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.sort-btn:hover {
+  color: var(--accent);
+}
+
+/* Contact */
+.contact-method {
+  transition: border-color 0.2s, transform 0.2s;
+}
+.contact-method:hover {
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+.contact-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* Match form focus rings to the accent color */
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-method { transition: none; }
+  .contact-method:hover { transform: none; }
+}
